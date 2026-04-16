@@ -3,9 +3,9 @@ import { useAuth } from '../context/AuthContext';
 import { solicitacoes, abrigos, voluntarios } from '../services/api';
 import { 
   Home, Users, Heart, AlertCircle, CheckCircle, 
-  Clock, MapPin, Phone, Mail 
+  Clock, MapPin, Phone, Mail, User
 } from 'lucide-react';
-import './Dashboard.css';
+import './Dashboard.scss';
 
 export default function Dashboard() {
   const { usuario } = useAuth();
@@ -61,15 +61,18 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <div className="container">
-        {/* Header do Dashboard */}
-        <div className="dashboard-header">
-          <div>
-            <h1>Bem-vindo, {usuario.nome}!</h1>
-            <p className="dashboard-subtitle">
-              {usuario.tipo_usuario === 'abrigo' && 'Painel de Controle do Abrigo'}
-              {usuario.tipo_usuario === 'voluntario' && 'Painel do Voluntário'}
-              {usuario.tipo_usuario === 'usuario_final' && 'Suas Solicitações'}
-            </p>
+        <div className="dashboard-intro">
+          <div className="dashboard-header-card">
+            <div className="dashboard-header">
+              <div>
+                <h1>Bem-vindo, {usuario.nome}!</h1>
+                <p className="dashboard-subtitle">
+                  {usuario.tipo_usuario === 'abrigo' && 'Painel de Controle do Abrigo'}
+                  {usuario.tipo_usuario === 'voluntario' && 'Painel do Voluntário'}
+                  {usuario.tipo_usuario === 'usuario_final' && 'Suas Solicitações'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

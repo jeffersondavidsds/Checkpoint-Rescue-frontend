@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, AlertCircle } from 'lucide-react';
-import './Auth.css';
+import './Auth.scss';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', senha: '' });
@@ -31,10 +31,28 @@ export default function Login() {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-card">
-          <div className="auth-header">
-            <img src="/logo.png" alt="Logo" className="auth-logo" />
-            <h1>Entrar</h1>
-            <p>Bem-vindo de volta ao Checkpoint Rescue</p>
+          <div className="auth-intro">
+            <div className="auth-header">
+              <span className="auth-pill">Conecte-se</span>
+              <img src="/logo.png" alt="Logo" className="auth-logo" />
+              <h1>Bem-vindo ao Checkpoint Rescue</h1>
+              <p>Entre para gerenciar abrigos, voluntários e solicitações de ajuda com rapidez.</p>
+            </div>
+
+            <div className="auth-metrics">
+              <div>
+                <strong>150+</strong>
+                <span>Abrigos ativos</span>
+              </div>
+              <div>
+                <strong>120+</strong>
+                <span>Voluntários prontos</span>
+              </div>
+              <div>
+                <strong>24h</strong>
+                <span>Atendimento emergencial</span>
+              </div>
+            </div>
           </div>
 
           {erro && (

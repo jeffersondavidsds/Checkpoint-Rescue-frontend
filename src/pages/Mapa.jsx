@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { mapa } from '../services/api';
 import { MapPin, Home, Users, AlertCircle } from 'lucide-react';
-import './Mapa.css';
+import './Mapa.scss';
 
 export default function Mapa() {
   const [localizacoes, setLocalizacoes] = useState(null);
@@ -79,13 +79,15 @@ export default function Mapa() {
   return (
     <div className="mapa-page">
       <div className="container">
-        <div className="mapa-header">
-          <div>
-            <h1>Mapa de Recursos</h1>
-            <p>Encontre abrigos, voluntários e solicitações de ajuda</p>
-          </div>
+        <div className="mapa-intro">
+          <div className="mapa-header-card">
+            <div className="mapa-header">
+              <div>
+                <h1>Mapa de Recursos</h1>
+                <p>Encontre abrigos, voluntários e solicitações de ajuda</p>
+              </div>
 
-          <div className="mapa-filters">
+              <div className="mapa-filters">
             <button
               className={`filter-btn ${filtro === 'todos' ? 'active' : ''}`}
               onClick={() => setFiltro('todos')}
@@ -115,6 +117,8 @@ export default function Mapa() {
             </button>
           </div>
         </div>
+      </div>
+    </div>
 
         {/* Info Cards */}
         <div className="stats-summary">

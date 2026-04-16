@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import './Auth.css';
+import './Auth.scss';
 
 export default function Registro() {
   const [searchParams] = useSearchParams();
@@ -42,11 +42,25 @@ export default function Registro() {
   return (
     <div className="auth-page">
       <div className="auth-container">
-        <div className="auth-card" style={{ maxWidth: '600px' }}>
-          <div className="auth-header">
-            <img src="/logo.png" alt="Logo" className="auth-logo" />
-            <h1>Cadastrar</h1>
-            <p>Junte-se ao Checkpoint Rescue</p>
+        <div className="auth-card">
+          <div className="auth-intro">
+            <div className="auth-header">
+              <span className="auth-pill">Cadastro rápido</span>
+              <img src="/logo.png" alt="Logo" className="auth-logo" />
+              <h1>Crie sua conta</h1>
+              <p>Seja voluntário, registre um abrigo ou solicite ajuda em poucos passos.</p>
+            </div>
+
+            <div className="auth-metrics">
+              <div>
+                <strong>3+</strong>
+                <span>Tipos de cadastro</span>
+              </div>
+              <div>
+                <strong>24h</strong>
+                <span>Retorno imediato</span>
+              </div>
+            </div>
           </div>
 
           {erro && (

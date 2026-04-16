@@ -1,12 +1,12 @@
 import { Heart, Users, Home, Shield, Zap, Globe } from 'lucide-react';
-import './Sobre.css';
+import './Sobre.scss';
 
 export default function Sobre() {
   return (
     <div className="sobre-page">
       <div className="container">
-        {/* Hero */}
-        <div className="sobre-hero">
+        {/* Cabeçalho */}
+        <div className="sobre-header">
           <img src="/logo.png" alt="Checkpoint Rescue" className="sobre-logo" />
           <h1>Sobre o Checkpoint Rescue</h1>
           <p className="sobre-intro">

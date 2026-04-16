@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuração base da API
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: process.env.VITE_API_URL || 'https://checkpoint-rescue.onrender.com/api',
   headers: {
     'Content-Type': 'application/json'
   }
@@ -98,9 +98,24 @@ export const abrigos = {
 // ==========================================
 
 export const mapa = {
-  obterLocalizacoes: () => api.get('/mapa'),
-  obterProximos: (lat, lng, raio = 10) => 
-    api.get(`/mapa/proximos?lat=${lat}&lng=${lng}&raio=${raio}`)
+  obterLocalizacoes: () => api.get('/mapa/localizacoes'),
+  obterAbrigos: () => api.get('/mapa/abrigos'),
+  obterVoluntarios: () => api.get('/mapa/voluntarios'),
+  obterSolicitacoes: () => api.get('/mapa/solicitacoes')
+};
+
+// ==========================================
+// DOAÇÕES
+// ==========================================
+
+export const doacoes = {
+  listar: (filtros = {}) => {
+    const params = new URLSearchParams(filtros).toString();
+    return api.get(`/doacoes${params ? `?${params}` : ''}`);
+  },
+  criar: (dados) => api.post('/doacoes', dados),
+  atualizar: (id, dados) => api.put(`/doacoes/${id}`, dados),
+  deletar: (id) => api.delete(`/doacoes/${id}`)
 };
 
 export default api;

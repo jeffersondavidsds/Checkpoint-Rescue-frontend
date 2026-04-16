@@ -1,407 +1,176 @@
-# 🌊 Frontend - Checkpoint Rescue
+# Checkpoint Rescue - Frontend
 
-Frontend do Sistema de Gerenciamento de Enchentes desenvolvido em React + Vite.
+Frontend da plataforma **Checkpoint Rescue**: Um sistema de gerenciamento integrado para emergências por enchentes, conectando voluntários, abrigos e pessoas em situação de risco.
 
----
+## 🚀 Características
 
-## 📋 Pré-requisitos
+- ✨ Interface moderna e responsiva
+- 📱 Totalmente mobile-friendly
+- 🗺️ Mapa interativo de recursos
+- 🔐 Sistema de autenticação seguro
+- 👥 Três tipos de usuários (Voluntário, Abrigo, Usuário Final)
+- 🎨 Design moderno com Tailwind CSS
+- ⚡ Construído com React + Vite
 
-- **Node.js** (versão 16 ou superior)
-- **npm** ou **yarn**
-- **Backend rodando** na porta 3000
+## 📋 Stack Tecnológico
 
----
+- **Frontend**: React 18
+- **Build**: Vite 5
+- **Roteamento**: React Router v6
+- **HTTP Client**: Axios
+- **Ícones**: Lucide React
+- **Mapas**: Google Maps API
+- **Autenticação**: JWT
 
-## ⚡ Início Rápido
+## 🔧 Configuração
 
-### 1️⃣ Instalar dependências
+### Requisitos
+- Node.js 16+
+- npm ou yarn
+
+### Instalação
+
 ```bash
+# Clonar repositório
+git clone https://github.com/checkpoint-rescue/frontend.git
+cd frontend
+
+# Instalar dependências
 npm install
 ```
 
-### 2️⃣ Executar em modo desenvolvimento
-```bash
-npm run dev
+### Variáveis de Ambiente
+
+Crie um arquivo `.env.local` na raiz do projeto:
+
+```env
+VITE_API_URL=http://localhost:3000/api
 ```
 
-### 3️⃣ Acessar
-Abra o navegador em: **http://localhost:3001**
-
----
-
-## 🛠️ Scripts Disponíveis
-
-```bash
-# Modo desenvolvimento (com hot reload)
-npm run dev
-
-# Build para produção
-npm run build
-
-# Preview do build de produção
-npm run preview
+Para produção (`.env`):
+```env
+VITE_API_URL=https://checkpoint-rescue.onrender.com/api
 ```
 
----
+## 📦 Scripts Disponíveis
+
+```bash
+# Desenvolvimento
+npm run dev      # Inicia servidor de desenvolvimento (http://localhost:3001)
+
+# Build
+npm run build    # Cria build de produção
+
+# Preview
+npm run preview  # Visualiza o build localmente
+```
 
 ## 📁 Estrutura do Projeto
 
 ```
-frontend/
-├── public/                 # Arquivos estáticos
-│   ├── logo.png           # Logo do Checkpoint Rescue
-│   ├── abrigo-hero.jpg    # Imagem hero do abrigo
-│   ├── voluntario-resgate.jpg
-│   └── doacoes.jpg
+src/
+├── components/
+│   ├── Header.jsx          # Navegação principal
+│   └── Header.css
 │
-├── src/
-│   ├── components/        # Componentes reutilizáveis
-│   │   ├── Header.jsx
-│   │   └── Header.css
-│   │
-│   ├── pages/             # Páginas da aplicação
-│   │   ├── Home.jsx       # Página inicial
-│   │   ├── Login.jsx      # Página de login
-│   │   ├── Registro.jsx   # Cadastro de usuários
-│   │   ├── Dashboard.jsx  # Dashboard personalizado
-│   │   ├── Mapa.jsx       # Mapa de recursos
-│   │   └── Sobre.jsx      # Sobre o projeto
-│   │
-│   ├── services/          # Integração com API
-│   │   └── api.js         # Axios + endpoints
-│   │
-│   ├── context/           # Contexts do React
-│   │   └── AuthContext.jsx # Contexto de autenticação
-│   │
-│   ├── styles/            # Estilos globais
-│   │   └── global.css     # CSS global e variáveis
-│   │
-│   ├── App.jsx            # Componente principal
-│   └── main.jsx           # Entry point
+├── pages/
+│   ├── Home.jsx            # Página inicial com hero + 3 cards
+│   ├── Home.css
+│   ├── Login.jsx           # Formulário de login
+│   ├── Registro.jsx        # Cadastro de usuários
+│   ├── Dashboard.jsx       # Painel personalizado por tipo
+│   ├── Dashboard.css
+│   ├── Mapa.jsx           # Mapa de recursos
+│   ├── Mapa.css
+│   ├── Sobre.jsx          # Página sobre
+│   ├── Sobre.css
+│   └── Auth.css           # Estilos de autenticação
 │
-├── index.html             # HTML base
-├── vite.config.js         # Configuração do Vite
-└── package.json           # Dependências
+├── services/
+│   └── api.js             # Configuração da API e endpoints
+│
+├── context/
+│   └── AuthContext.jsx    # Context de autenticação
+│
+├── styles/
+│   └── global.css         # Estilos globais e variáveis CSS
+│
+├── App.jsx               # Componente raiz
+└── main.jsx              # Ponto de entrada
 ```
 
----
+## 🔌 Integração com API
 
-## 🎨 Design e Responsividade
+A API está configurada em: **https://checkpoint-rescue.onrender.com/api**
 
-### ✅ Totalmente Responsivo
-- ✅ **Desktop** (1200px+)
-- ✅ **Tablet** (768px - 1199px)
-- ✅ **Mobile** (até 767px)
-- ✅ Testado em:
-  - iPhone 13-17
-  - Moto Edge 50 Fusion
-  - Android devices
+Endpoints disponíveis:
+- **Auth**: `/auth/login`, `/auth/registro`, `/auth/verificar`
+- **Solicitações**: `/solicitacoes` (CRUD)
+- **Voluntários**: `/voluntarios` (listar, perfil)
+- **Abrigos**: `/abrigos` (listar, perfil)
+- **Mapa**: `/mapa/localizacoes`
+- **Doações**: `/doacoes` (CRUD)
 
-### 🎨 Paleta de Cores
+## 🎯 Rotas da Aplicação
 
-```css
-/* Cores Principais */
---primary: #2563eb;        /* Azul água */
---secondary: #10b981;      /* Verde segurança */
---warning: #f59e0b;        /* Amarelo alerta */
---danger: #ef4444;         /* Vermelho urgente */
-
-/* Status de Lotação */
---verde: #22c55e;          /* Livre */
---azul: #3b82f6;           /* Disponível */
---amarelo: #f59e0b;        /* Enchendo */
---vermelho: #ef4444;       /* Lotado */
-```
-
----
-
-## 🔗 Integração com Backend
-
-O frontend consome a API REST do backend através do Axios.
-
-### Configuração da API
-
-Arquivo: `src/services/api.js`
-
-```javascript
-baseURL: 'http://localhost:3000/api'
-```
-
-### Endpoints Utilizados
-
-#### Autenticação
-- `POST /auth/registro` - Cadastro
-- `POST /auth/login` - Login
-- `GET /auth/verificar` - Verificar token
-
-#### Solicitações
-- `GET /solicitacoes` - Listar
-- `POST /solicitacoes` - Criar
-- `GET /solicitacoes/minhas` - Minhas solicitações
-
-#### Voluntários
-- `GET /voluntarios` - Listar
-- `GET /voluntarios/meu-perfil` - Meu perfil
-
-#### Abrigos
-- `GET /abrigos` - Listar
-- `GET /abrigos/meu-perfil` - Meu perfil
-- `GET /abrigos/estatisticas` - Estatísticas
-
-#### Mapa
-- `GET /mapa` - Todas as localizações
-- `GET /mapa/proximos` - Localizações próximas
-
----
+| Rota | Descrição | Público |
+|------|-----------|---------|
+| `/` | Página inicial | ✅ |
+| `/login` | Login | ✅ |
+| `/registro` | Cadastro | ✅ |
+| `/mapa` | Mapa de recursos | ✅ |
+| `/sobre` | Sobre o projeto | ✅ |
+| `/dashboard` | Painel do usuário | ❌ Protegida |
 
 ## 🔐 Autenticação
 
-O sistema usa **JWT (JSON Web Tokens)** para autenticação.
+O sistema usa JWT (JSON Web Token) para autenticação:
 
-### Fluxo de Autenticação
+1. Token armazenado em `localStorage`
+2. Enviado em todas as requisições via header `Authorization`
+3. Redireciona para login se token expirar (401)
 
-1. Usuário faz login
-2. Backend retorna token JWT
-3. Token é armazenado em `localStorage`
-4. Token é enviado em todas as requisições via header `Authorization`
+## 📱 Responsividade
 
-### Context de Autenticação
+- Desktop: 1280px+
+- Tablet: 768px - 1279px
+- Mobile: < 768px
 
-```jsx
-import { useAuth } from './context/AuthContext';
+Todos os componentes são mobile-first e fully responsive.
 
-function Component() {
-  const { usuario, login, logout, isAuthenticated } = useAuth();
-  
-  // Usar as funções...
-}
-```
+## 🎨 Design System
 
----
+Cores principais:
+- **Primária**: #2563eb (Azul água)
+- **Secundária**: #10b981 (Verde segurança)
+- **Alerta**: #f59e0b (Amarelo)
+- **Perigo**: #ef4444 (Vermelho)
 
-## 📱 Páginas e Funcionalidades
+## 🚀 Deploy
 
-### 🏠 Home (`/`)
-- Hero section com logo sobreposta
-- 3 cards principais (Voluntário, Doações, Abrigo)
-- CTA para solicitação de ajuda
-- **Público** (não requer login)
+### Render.com (Recomendado)
 
-### 🔐 Login (`/login`)
-- Formulário de login
-- Validação de campos
-- Mensagens de erro
-- Redirecionamento para dashboard
+1. Push para GitHub
+2. Conecte no Render.com
+3. Configure ambiente:
+   - Build: `npm run build`
+   - Start: `npm run preview`
 
-### 📝 Registro (`/registro`)
-- Cadastro de 3 tipos de usuários:
-  - Usuário Final
-  - Voluntário (resgate, ceder espaço, doação)
-  - Abrigo/Instituição
-- Formulário dinâmico baseado no tipo
+### Vercel
 
-### 📊 Dashboard (`/dashboard`) 🔒
-Dashboard personalizado por tipo de usuário:
-
-**Abrigo:**
-- Estatísticas (capacidade, ocupação, vagas)
-- Status de lotação visual
-- Informações do abrigo
-
-**Voluntário:**
-- Tipo de voluntário
-- Status de disponibilidade
-- Dados de contato
-
-**Usuário Final:**
-- Lista de solicitações criadas
-- Status de cada solicitação
-- Prioridade e data
-
-### 🗺️ Mapa (`/mapa`)
-- Visualização de abrigos
-- Visualização de voluntários
-- Solicitações pendentes
-- Filtros por tipo
-- Cards com informações detalhadas
-- **Público** (não requer login)
-
-### ℹ️ Sobre (`/sobre`)
-- Missão do projeto
-- Como funciona
-- Tecnologias utilizadas
-- Call to action
-- **Público**
-
----
-
-## 🎯 Hooks do React Utilizados
-
-### useState
-```jsx
-const [dados, setDados] = useState(null);
-const [carregando, setCarregando] = useState(true);
-```
-
-### useEffect
-```jsx
-useEffect(() => {
-  carregarDados();
-}, []);
-```
-
-### useContext (AuthContext)
-```jsx
-const { usuario, login, logout } = useAuth();
-```
-
-### useNavigate (React Router)
-```jsx
-const navigate = useNavigate();
-navigate('/dashboard');
-```
-
----
-
-## 🚀 Build para Produção
-
-### 1️⃣ Criar build
 ```bash
-npm run build
+npm install -g vercel
+vercel deploy
 ```
-
-### 2️⃣ Preview do build
-```bash
-npm run preview
-```
-
-### 3️⃣ Deploy
-
-O build gera uma pasta `dist/` com arquivos otimizados.
-
-**Plataformas recomendadas:**
-- **Vercel** (recomendado para React)
-- **Netlify**
-- **GitHub Pages**
-- **Firebase Hosting**
-
----
-
-## ⚙️ Configurações Importantes
-
-### Vite Config (`vite.config.js`)
-
-```javascript
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3001,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true
-      }
-    }
-  }
-})
-```
-
-### Proxy de API
-
-O Vite está configurado para fazer proxy de `/api` para `http://localhost:3000`.
-
-Isso significa que você pode fazer requisições para `/api/auth/login` e o Vite 
-automaticamente encaminha para `http://localhost:3000/api/auth/login`.
-
----
-
-## 🐛 Troubleshooting
-
-### Erro: "Cannot connect to backend"
-```bash
-# Certifique-se de que o backend está rodando
-cd backend
-npm run dev
-```
-
-### Erro: "Module not found"
-```bash
-# Reinstale as dependências
-rm -rf node_modules package-lock.json
-npm install
-```
-
-### Erro: Port 3001 already in use
-```bash
-# Mate o processo na porta 3001
-# Windows
-netstat -ano | findstr :3001
-taskkill /PID <PID> /F
-
-# Linux/Mac
-lsof -ti:3001 | xargs kill -9
-```
-
-### Página em branco após build
-```bash
-# Verifique se o build foi gerado corretamente
-npm run build
-npm run preview
-```
-
----
-
-## 📚 Bibliotecas Utilizadas
-
-- **React** ^18.2.0 - Biblioteca UI
-- **React Router DOM** ^6.20.0 - Roteamento
-- **Axios** ^1.6.2 - Cliente HTTP
-- **Lucide React** ^0.294.0 - Ícones
-- **Vite** ^5.0.8 - Build tool
-
----
-
-## ✅ Checklist de Funcionalidades
-
-- ✅ Sistema de autenticação completo
-- ✅ Cadastro de 3 tipos de usuários
-- ✅ Dashboard personalizado por tipo
-- ✅ Visualização de mapa de recursos
-- ✅ Lista de solicitações
-- ✅ Responsive design (mobile-first)
-- ✅ Integração completa com backend
-- ✅ Rotas protegidas
-- ✅ Gestão de estado global (Context API)
-- ✅ Validação de formulários
-- ✅ Feedback visual de loading
-- ✅ Mensagens de erro/sucesso
-
----
-
-## 🔜 Melhorias Futuras
-
-- [ ] Integração real com Google Maps API
-- [ ] Sistema de notificações em tempo real
-- [ ] Chat entre voluntários e solicitantes
-- [ ] Upload de fotos
-- [ ] Sistema de avaliação
-- [ ] Dark mode
-- [ ] PWA (Progressive Web App)
-- [ ] Testes automatizados
-
----
 
 ## 📞 Suporte
 
-Se encontrar problemas:
+Para questões ou bugs, abra uma issue no GitHub.
 
-1. Verifique se o backend está rodando
-2. Limpe o cache do navegador
-3. Reinstale as dependências
-4. Verifique o console do navegador para erros
+## 📄 Licença
+
+MIT License - veja LICENSE para detalhes.
 
 ---
 
-**🌊 Frontend pronto para uso! 🆘**
-
-Desenvolvido com ❤️ para ajudar em situações de enchente.
+**Checkpoint Rescue** - Juntos nas Enchentes 💙

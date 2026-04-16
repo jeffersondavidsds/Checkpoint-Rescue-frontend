@@ -1,7 +1,7 @@
 .dashboard {
   min-height: calc(100vh - 80px);
   padding: 3rem 0;
-  background: var(--gray-50);
+  background: linear-gradient(180deg, #f5f9f1 0%, #f3f7f2 45%, #ffffff 100%);
 }
 
 .dashboard-loading {
@@ -13,28 +13,41 @@
   gap: 1rem;
 }
 
+.dashboard-intro {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-3xl);
+  padding: 2.25rem;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid var(--gray-200);
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .dashboard-header h1 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 3vw, 2.8rem);
   color: var(--gray-900);
 }
 
 .dashboard-subtitle {
   color: var(--gray-600);
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   margin-top: 0.5rem;
 }
 
 .dashboard-content {
   animation: fadeIn 0.5s ease-in;
+  display: grid;
+  gap: 2rem;
 }
 
 /* Stats Grid */
@@ -205,17 +218,35 @@
 
 .solicitacao-prioridade {
   font-weight: 600;
+  text-transform: capitalize;
+}
+
+.solicitacao-data {
+  color: var(--gray-500);
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .dashboard {
     padding: 2rem 0;
-  }
-  
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
   }
   
   .dashboard-header h1 {
