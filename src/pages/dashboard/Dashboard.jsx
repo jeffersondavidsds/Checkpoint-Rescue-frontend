@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { solicitacoes, abrigos, voluntarios } from '../services/api';
+import { useAuth } from '../../context/AuthContext';
+import { solicitacoes, abrigos, voluntarios } from '../../services/api';
 import { 
   Home, Users, Heart, AlertCircle, CheckCircle, 
   Clock, MapPin, Phone, Mail, User

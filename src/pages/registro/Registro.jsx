@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import './Auth.scss';
+import { useAuth } from '../../context/AuthContext';
+import '../auth/Auth.scss';
 
 export default function Registro() {
   const [searchParams] = useSearchParams();

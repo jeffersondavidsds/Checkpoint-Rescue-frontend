@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Search, Home as HomeIcon, ShieldCheck, Heart, MapPin, ArrowRight } from 'lucide-react';
+import { Search, Home as HomeIcon, ShieldCheck, Heart, MapPin, ArrowRight, Facebook, Instagram, MessageCircle } from 'lucide-react';
 import './Home.scss';
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
                 <HomeIcon size={18} />
                 Abrigo Verificado
               </div>
-              <div className="home-card-footer">
+              <div className="home-card-meta">
                 <div>
                   <span>Capacidade</span>
                   <strong>80 pessoas</strong>
@@ -156,6 +156,27 @@ export default function Home() {
           </article>
         </div>
       </section>
+
+      <footer className="home-footer">
+        <div className="footer-inner container">
+          <div className="footer-content">
+            <div className="footer-copy">
+              ©Todos os direitos reservados. Desenvolvido por Jefferson David em 2026
+            </div>
+            <div className="footer-social">
+              <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="footer-icon">
+                <Facebook size={20} />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="footer-icon">
+                <Instagram size={20} />
+              </a>
+              <a href="https://wa.me/" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="footer-icon">
+                <MessageCircle size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

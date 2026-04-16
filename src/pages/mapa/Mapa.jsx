@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { mapa } from '../services/api';
+import { mapa } from '../../services/api';
 import { MapPin, Home, Users, AlertCircle } from 'lucide-react';
 import './Mapa.scss';
 

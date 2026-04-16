@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import { Mail, Lock, AlertCircle } from 'lucide-react';
-import './Auth.scss';
+import '../auth/Auth.scss';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', senha: '' });

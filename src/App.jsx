@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Header from './components/Header';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Registro from './pages/Registro';
-import Dashboard from './pages/Dashboard';
-import Mapa from './pages/Mapa';
-import Sobre from './pages/Sobre';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Registro from './pages/registro/Registro';
+import Dashboard from './pages/dashboard/Dashboard';
+import Mapa from './pages/mapa/Mapa';
+import Sobre from './pages/sobre/Sobre';
 
 // Componente para rotas protegidas (apenas usuários autenticados)
 function RotaProtegida({ children }) {
