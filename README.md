@@ -163,9 +163,6 @@ npm install -g vercel
 vercel deploy
 ```
 
-## 📞 Suporte
-
-Para questões ou bugs, abra uma issue no GitHub.
 
 ## 📄 Licença
 
