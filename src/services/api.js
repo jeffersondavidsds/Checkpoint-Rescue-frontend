@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuração base da API
 const api = axios.create({
-  baseURL: process.env.VITE_API_URL || 'https://checkpoint-rescue.onrender.com/api',
+  baseURL: process.env.VITE_API_URL || 'https://checkpoint-rescue.onrender.com/',
   headers: {
     'Content-Type': 'application/json'
   }
